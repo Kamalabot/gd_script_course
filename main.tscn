@@ -1,6 +1,9 @@
-[gd_scene load_steps=2 format=3 uid="uid://dokrqodoqk41"]
+[gd_scene load_steps=5 format=3 uid="uid://dokrqodoqk41"]
 
 [ext_resource type="Script" uid="uid://ddewx8hxyf75f" path="res://main.gd" id="1_ig7tw"]
+[ext_resource type="PackedScene" uid="uid://ba46mgl52tac6" path="res://dsa.tscn" id="2_0xm2m"]
+[ext_resource type="PackedScene" uid="uid://cqdl5t67xykn3" path="res://adv_node.tscn" id="3_h2yge"]
+[ext_resource type="PackedScene" uid="uid://c52u2li6rnqlg" path="res://Signaller.tscn" id="4_1bvp3"]
 
 [node name="Main" type="Node"]
 script = ExtResource("1_ig7tw")
@@ -14,3 +17,17 @@ offset_bottom = 336.0
 theme_override_font_sizes/font_size = 56
 text = "This is a Label"
 vertical_alignment = 1
+
+[node name="Dsa" parent="." instance=ExtResource("2_0xm2m")]
+
+[node name="Player" type="Node" parent="."]
+
+[node name="Weapon" type="Node" parent="Player"]
+unique_name_in_owner = true
+
+[node name="Sprite2D" type="Sprite2D" parent="Player"]
+
+[node name="AdvNode" parent="." instance=ExtResource("3_h2yge")]
+position = Vector2(91, 120)
+
+[node name="Signaller" parent="." instance=ExtResource("4_1bvp3")]
