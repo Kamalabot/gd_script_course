@@ -1,12 +1,16 @@
-[gd_scene load_steps=5 format=3 uid="uid://dokrqodoqk41"]
+[gd_scene load_steps=8 format=3 uid="uid://dokrqodoqk41"]
 
 [ext_resource type="Script" uid="uid://ddewx8hxyf75f" path="res://main.gd" id="1_ig7tw"]
 [ext_resource type="PackedScene" uid="uid://ba46mgl52tac6" path="res://dsa.tscn" id="2_0xm2m"]
-[ext_resource type="PackedScene" uid="uid://cqdl5t67xykn3" path="res://adv_node.tscn" id="3_h2yge"]
-[ext_resource type="PackedScene" uid="uid://c52u2li6rnqlg" path="res://Signaller.tscn" id="4_1bvp3"]
+[ext_resource type="PackedScene" uid="uid://mnjxx4k7hfwj" path="res://signal_main.tscn" id="4_1bvp3"]
+[ext_resource type="PackedScene" uid="uid://byyw6qo16jxbc" path="res://button_press.tscn" id="4_lquwl"]
+[ext_resource type="PackedScene" uid="uid://ocl3btl0ejt2" path="res://set_value.tscn" id="5_lquwl"]
+[ext_resource type="PackedScene" uid="uid://cqcjhe41vk08t" path="res://get_val.tscn" id="6_7mycd"]
+[ext_resource type="PackedScene" uid="uid://dvmheyxwwkrgm" path="res://laptop.tscn" id="7_272bh"]
 
-[node name="Main" type="Node"]
+[node name="Main" type="Node" node_paths=PackedStringArray("laptop_to_open")]
 script = ExtResource("1_ig7tw")
+laptop_to_open = NodePath("AcerLaptop")
 
 [node name="Label" type="Label" parent="."]
 unique_name_in_owner = true
@@ -27,7 +31,23 @@ unique_name_in_owner = true
 
 [node name="Sprite2D" type="Sprite2D" parent="Player"]
 
-[node name="AdvNode" parent="." instance=ExtResource("3_h2yge")]
-position = Vector2(91, 120)
+[node name="ButtonPress" parent="." instance=ExtResource("4_lquwl")]
+position = Vector2(460, 320)
 
-[node name="Signaller" parent="." instance=ExtResource("4_1bvp3")]
+[node name="SignalMain" parent="." instance=ExtResource("4_1bvp3")]
+
+[node name="SetValue" parent="." instance=ExtResource("5_lquwl")]
+
+[node name="GetVal" parent="." instance=ExtResource("6_7mycd")]
+
+[node name="AcerLaptop" parent="." instance=ExtResource("7_272bh")]
+unique_name_in_owner = true
+make = "Acer"
+cost = 510.0
+
+[node name="HpLaptop" parent="." instance=ExtResource("7_272bh")]
+unique_name_in_owner = true
+make = "hp"
+cost = 577.0
+
+[connection signal="leveled_up" from="SignalMain" to="." method="_on_signal_main_leveled_up"]

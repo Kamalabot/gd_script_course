@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://ocl3btl0ejt2"]
+
+[ext_resource type="Script" uid="uid://csn5x7xt0qa2p" path="res://set_value.gd" id="1_aymfu"]
+
+[node name="SetValue" type="Node"]
+script = ExtResource("1_aymfu")
+
+[connection signal="health_changed" from="." to="." method="_on_health_changed"]

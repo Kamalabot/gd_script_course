@@ -13,31 +13,31 @@ enum Devices { MOBILE, PC, TABLETS, PLAYSTATION } # Using it for states & export
 
 func  _ready() -> void:
 	# var items = [5, 7, 9, 7]
-	var items: Array[int] = [5, 7, 9, 7]
-	print("The items are ", items)
+	var _items: Array[int] = [5, 7, 9, 7]
+	# print("The items are ", items)
 	
-	for n in 8:
-		print(n) # iterates for 8 times
+	#for n in 8:
+		#print(n) # iterates for 8 times
 		
-	var dicty = {
+	var _dicty = {
 		"Villain": 15,
 		"Mob": 100,
 		"Boss": 1000
 	}
 	
-	var dicty_dict = {
+	var _dicty_dict = {
 		"make1": {"usupe": 5, "health": 5},
 		"make2": {"isupe": 5, "health": 57},
 		"make3": {"osupe": 5, "health": 577},
 	}
-	for character in dicty:
-		print(dicty[character])
+	#for character in _dicty:
+		#print(_dicty[character])
 		
-	for item in items:
-		print(item)
+	#for item in items:
+		#print(item)
 	
 	# accesssig enums
-	var it = Devices.MOBILE
+	var _it = Devices.MOBILE
 	
 	# Match statement
 	match unit_align:

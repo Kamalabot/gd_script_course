@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://dvmheyxwwkrgm"]
+
+[ext_resource type="Script" uid="uid://cbjfv6tht6bij" path="res://laptop.gd" id="1_syt5x"]
+
+[node name="Laptop" type="Node"]
+script = ExtResource("1_syt5x")

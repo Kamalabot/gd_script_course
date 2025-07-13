@@ -4,7 +4,10 @@ extends Node
 
 const GRAVITY = -9.81
 
-@export_category("Monument")
+@export_category("Monument") # this creates a new category
+@export var monument = 5
+
+@export var laptop_to_open: Laptop
 
 @onready var label: Label = %Label
 var health = 100.0 # This variable is script wide scope
@@ -26,14 +29,15 @@ func addK(num1, num2):
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	var for_only_func = 0
-	var string_health = str(health) + " is the health..."
+	var _for_only_func = 0
+	var _string_health = str(health) + " is the health..."
 	label.text = "Awesome Godot Script"
 	label.modulate = Color.CHOCOLATE
 	print("The player is having ", health, " health")
 	vec2.x = 10.0
 	var height = randi_range(140, 153)
 	print("The height is ", height)
+	laptop_to_open.close()
 	
 func _input(event: InputEvent) -> void:
 	if event.is_action_pressed("change_color"):
@@ -51,3 +55,7 @@ func _input(event: InputEvent) -> void:
 		
 	if event.is_action_released("change_color"):
 		label.modulate = Color.YELLOW
+
+
+func _on_signal_main_leveled_up() -> void:
+	print("Ring a Level up")	  # Replace with function body.
